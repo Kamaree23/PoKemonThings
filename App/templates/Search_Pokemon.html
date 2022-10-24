@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+<form method="POST">
+{{ form.hidden_tag() }}
+{{form.pokemon(class='form-control',
+placeholder='Search a PoKemon Here!') }}
+{{form.submit(class='btn btn-primary')}}
+</form>
+{{pokedex}}
+<!-- {%for p in pokedex %}
+    {%if p in pokedex %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ p.img }}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{p.name}}</h5>
+        <p class="card-text">{{p.type}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>
+    {% endif %}
+{% endfor %} -->
+
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<!-- {{pokedex}} -->
+<div class="card" style="width: 18rem;">
+    <img src="{{ pokedex.img }}" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title">{{pokedex.name}}</h5>
+    <p class="card-text">Base HP: {{pokedex.bhp}}</p>
+    <p class="card-text">Base Attack: {{pokedex.batk}}</p>
+    <p class="card-text">Base Defense: {{pokedex.bdf}}</p>
+    <p class="card-text">Main Ablility: {{pokedex.ability}}</p>
+    <a href="/PoKemonSearch" class="btn btn-primary">Search More PoKemon!</a>
+</div>
+
+{% endblock %}
