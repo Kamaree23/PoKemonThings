@@ -1,3 +1,5 @@
 .env
 __pycache__
 Poke_World
+migrations
+random_stuff

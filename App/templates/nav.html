@@ -25,6 +25,21 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/PoKemonSearch" style="margin-left: 5rem ;margin-right: 5rem;">Search PoKemon</a>
           </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <p class="nav-link" > Hello, {{current_user.username}} </p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">LogIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Sign-up</a>
+          </li>
+          {% endif %}
         </form>
       </div>
     </div>

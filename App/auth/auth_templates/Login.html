@@ -1,0 +1,15 @@
+{% extends 'nav2.0.html' %} 
+
+<!-- make an action or redirect! for both login and signup -->
+
+{% block content %}
+<form method="POST" class="signupbox">
+    {{form.hidden_tag()}} 
+    {{form.username(class='form-control',
+    placeholder='Username')}}
+    {{form.password(class='form-control',
+    placeholder='Password')}}
+    {{form.submit (class = 'btn btn-primary')}}  
+</form>
+
+{% endblock %}

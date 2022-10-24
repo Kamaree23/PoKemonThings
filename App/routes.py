@@ -1,6 +1,5 @@
 from App import app
 from flask import render_template, redirect, url_for, request
-
 from .Catchem import catchEmAll
 from .forms import CatchEmAll
 import requests as r 

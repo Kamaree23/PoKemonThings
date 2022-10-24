@@ -13,3 +13,10 @@ a{
 a:hover{
     background-color: gold;
 }
+.signupbox{
+    display: flex;
+    flex-direction: column;
+    width:30rem;
+    margin-left: 45rem;
+    margin-top: 10rem;
+}
