@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, flash, url_for
-from .forms import SignUp, Login
+from .forms import SignUp, Login, Prof
 from App.models import User, db
 from flask_login import login_user, logout_user, current_user
 from werkzeug.security import check_password_hash
@@ -23,7 +23,7 @@ def signUp():
             password = form.password.data
 
             print(username, email, fname, lname, password)
-            user = User(username, email, password)
+            user = User(username, email, password, fname, lname)
             user.saveToDB()
         
         return redirect(url_for('auth.login'))
@@ -53,6 +53,48 @@ def login():
                 flash('User does not exist')
     return render_template('Login.html', form=form)
 
+
+@auth.route('/Profile/<username>')
+def viewProfile(username):
+    
+    profile = User.query.filter_by(username=current_user.username).first()
+    if username != current_user.username:
+            flash('You cannot access this!')
+            return redirect(url_for('auth.LogMeOut'))
+
+
+    return render_template('viewProfile.html', profile=profile)
+
+
+@auth.route('/Profile/edit/<username>',  methods=["GET", "POST"])
+def editProfile(username):
+
+    form = Prof()
+
+    profile = User.query.filter_by(username=current_user.username).first()
+
+    if request.method == "POST":
+        if form.validate():
+            username = form.username.data
+            fname = form.fname.data
+            lname = form.lname.data
+            email = form.email.data
+            password = form.email.data
+
+            profile.username = username
+            profile.fname = fname
+            profile.lname = lname
+            profile.email = email
+            profile.password = password
+
+            profile.updateToDB()
+
+        return redirect(url_for('auth.viewProfile',  username = current_user.username))
+
+
+
+
+    return render_template('editProfile.html', form = form, profile = profile)
 
 
 @auth.route('/logout')

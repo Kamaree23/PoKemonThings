@@ -27,7 +27,10 @@
           </li>
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <p class="nav-link" > Hello, {{current_user.username}} </p>
+            <p class="nav-link userr" > Hello, {{current_user.username}} </p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.viewProfile', username=current_user.username)}}">View Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
