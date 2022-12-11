@@ -6,7 +6,7 @@
 
 <div style="max-height: 100%;">
 <form method="POST" >
-
+   
     <div class="card profile " style="width: 18rem; background-color: lightblue;">
         <img src="https://ssb.wiki.gallery/images/thumb/a/a0/FRLGMaleTrainer.png/1200px-FRLGMaleTrainer.png"
             class="card-img-top" style="height: 30rem;">
@@ -23,8 +23,12 @@
             <p class="card-text">Email: {{profile.email}}</p>
         </div>
         <div class="card-body" style="padding-top:0rem;">
-            <a class="card-text" href="{{url_for('auth.editProfile', username=current_user.username)}}">Modify Profile</a>
+            <a class="btn btn-warning" href="{{url_for('auth.editProfile', username=current_user.username)}}">Modify Profile</a>
         </div>
+        <div class="card-body" style="padding-top:0rem;">
+            <a class="btn btn-danger" href="{{url_for('auth.editProfile', username=current_user.username)}}">delete Profile</a>
+        </div>
+
         
     </div>
 

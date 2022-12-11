@@ -7,7 +7,7 @@
 
 
     <form method="POST">
-
+        {{ form.hidden_tag() }}
         <div class="card profile " style="width: 18rem; background-color: lightblue;">
             <img src="https://ssb.wiki.gallery/images/thumb/a/a0/FRLGMaleTrainer.png/1200px-FRLGMaleTrainer.png"
                 class="card-img-top" style="height: 30rem;">
@@ -24,8 +24,10 @@
                 <p class="card-text">Email: {{form.email (value = profile.email)}}</p>
             </div>
             <div class="card-body" style="padding-top:0rem;">
-                <p class="card-text">Password: {{form.password (placeholder = 'insert old or new password', value =
-                    profile.password)}}</p>
+                <p class="card-text">Password: {{form.password (placeholder = 'insert old or new password')}}</p>
+            </div>
+            <div class="card-body" style="padding-top:0rem;">
+                <p class="card-text">Password: {{form.confirm_password (placeholder = 'insert old or new password')}}</p>
             </div>
             <div class="card-body" style="padding-top:0rem;">
                 <a class="card-text"

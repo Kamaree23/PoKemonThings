@@ -6,3 +6,8 @@ class CatchEmAll(FlaskForm):
     pokemon = StringField('Pokemon', validators=[DataRequired()])
     submit = SubmitField()
 
+
+class Caught(FlaskForm):
+    poKemon = StringField('Pokemon', validators=[DataRequired()]) 
+    submit = SubmitField()
+

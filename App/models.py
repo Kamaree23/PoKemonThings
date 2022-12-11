@@ -27,3 +27,19 @@ class User(db.Model, UserMixin):
     
     def updateToDB(self):
         db.session.commit()
+
+
+class Pokemon(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    name = db.Column(db.String(150), nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
+
+    def __init__(self, user_id, name, date_created):
+        self.user_id = user_id
+        self.name = name
+        self.date_created = date_created
+
+    def saveToDB(self):
+        db.session.add(self)
+        db.session.commit()     
